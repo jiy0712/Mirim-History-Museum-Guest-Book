@@ -7,14 +7,14 @@ router.post('/', async (req, res)=>{
     const { data } = req.body;
 
     if(!data){
-        return res.status(400); //QR로 만들 데이터 없음
+        return res.status(400).json({ error: 'QR로 만들 데이터 없음' });
     }
 
     try{
         const qrimgUrl = await makeQR(data);
         res.json({qrimgUrl});
     }catch(err){
-        res.status(500); //QR 생성 실패
+        res.status(500).json({ error: 'QR 생성 실패'});
     }
 });
 

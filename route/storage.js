@@ -11,7 +11,6 @@ if(!fs.existsSync(storageDir)){ //폴더 없으면 생성
     fs.mkdirSync(storageDir);
 }
 
-//추후 변수명 변경
 const firebaseStorage = multer.diskStorage({
     destination: function(req, file, cb){
         cb(null, storageDir);
@@ -36,7 +35,7 @@ router.post('/', upload.single('img'), async (req, res)=>{
         //firebase 사진 등록
         const imgUrl = await uploadImg(fileBuffer, req.file.filename);
 
-        fs.unlinkSync(filePath); //로컬임시저장
+        fs.unlinkSync(filePath); //로컬임시저장, 나중에 선택적 빼기 가능
 
         res.json({
             message: "이미지 업로드 성공",

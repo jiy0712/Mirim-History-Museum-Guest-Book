@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const app = express();
 const path = require('path');
@@ -7,6 +8,8 @@ const cors = require('cors');
 const storageRouter = require('./route/storage');
 const imgRouter = require('./route/img');
 const qrRouter = require('./route/qr');
+
+console.log('GOOGLE_APPLICATION_CREDENTIALS:', process.env.GOOGLE_APPLICATION_CREDENTIALS);
 
 app.use(cors());
 app.use(express.json());

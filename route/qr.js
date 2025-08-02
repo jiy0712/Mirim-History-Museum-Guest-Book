@@ -26,5 +26,4 @@ router.post('/', async (req, res)=>{
     }
 });
 
-//생성 후 또 저장하도록
 module.exports = router;

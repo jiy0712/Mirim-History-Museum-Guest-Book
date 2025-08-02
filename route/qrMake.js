@@ -1,4 +1,4 @@
-const QRCode = require('qrcode');
+const QRCode = require('qrcode'); //qr node
 
 //QR 이미지 생성
 async function makeQR(data){

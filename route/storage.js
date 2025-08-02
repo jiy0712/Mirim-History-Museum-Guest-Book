@@ -24,7 +24,7 @@ const firebaseStorage = multer.diskStorage({
 const upload = multer({ storage });
 
 //storage
-router.post('/', storage.single('img'), (req, res)=>{
+router.post('/', storage.single('img'), async (req, res)=>{
     if(!req.file){
         return res.status(400); //이미지 파일 없음
     }

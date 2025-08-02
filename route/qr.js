@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { makeQR } = require('./qrMake');
-const { uploadImg } = require('./firebase');
+const { uploadImg } = require('../service/firebase');
 
 //qr
 router.post('/', async (req, res)=>{

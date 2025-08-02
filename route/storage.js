@@ -17,14 +17,14 @@ const firebaseStorage = multer.diskStorage({
         cb(null, storageDir);
     },
     filename: function(req, file, cb){
-        cd(null, Date.now() + path.extname(file.originalname));
+        cb(null, Date.now() + path.extname(file.originalname));
     },
 });
 
-const upload = multer({ storage });
+const upload = multer({ storage: firebaseStorage });
 
 //storage
-router.post('/', storage.single('img'), async (req, res)=>{
+router.post('/', upload.single('img'), async (req, res)=>{
     if(!req.file){
         return res.status(400); //이미지 파일 없음
     }
@@ -40,7 +40,7 @@ router.post('/', storage.single('img'), async (req, res)=>{
 
         res.json({
             message: "이미지 업로드 성공",
-            imgUrl : fileUrl,
+            imgUrl,
             fileName: req.file.filename
         });
     } catch(err){

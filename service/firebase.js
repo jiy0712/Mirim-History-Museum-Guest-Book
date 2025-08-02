@@ -1,10 +1,9 @@
 const admin = require('firebase-admin');
 const path = require('path');
 const fs = require('fs');
-const admin = require('firebase-admin');
 
 //firebase admin sdk 초기화
-const adminsdk = require(''); //경로 추가하기 (json)
+const adminsdk = require('../mirim-history-museum-e3f30-firebase-adminsdk-fbsvc-2785f78949.json');
 
 admin.initializeApp({
     credential: admin.credential.cert(adminsdk),

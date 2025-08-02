@@ -4,10 +4,9 @@ const path = require('path');
 const cors = require('cors');
 
 //라우터
-//추후 '././' 경로 넣기
-const storageRouter = require();
-const imgRouter = require();
-const qrRouter = require();
+const storageRouter = require('./route/storage');
+const imgRouter = require('./route/img');
+const qrRouter = require('./route/qr');
 
 app.use(cors());
 app.use(express.json());

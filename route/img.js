@@ -7,17 +7,21 @@ router.get('/', async (req, res)=>{
     try{
         const [files] = await admin.storage().bucket().getFiles();
 
+        const oneYearLater = new Date();
+        oneYearLater.setFullYear(oneYearLater.getFullYear() + 1);
+
         const imgUrl = await Promise.all(
             files.map(async (f) => {
                 const [url] = await f.getSignedUrl({
                     action:'read',
-                    expires: '' //기간 설정
+                    expires: oneYearLater
                 });
                 return url;
             })
         );
         res.json({ img: imgUrl});
     }catch(err){
+        console.error(err);
         res.status(500).json({ error: '이미지 불러오기 실패'}); //이미지 불러오기 실패
     }
 });

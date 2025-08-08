@@ -16,7 +16,15 @@ router.get('/', async (req, res)=>{
                     action:'read',
                     expires: oneYearLater
                 });
-                return url;
+                const [metadata] = await f.getMetadata();
+                return{
+                    name: f.name,
+                    url,
+                    contentType: metadata.contentType,
+                    size: metadata.size,
+                    timeCreated: metadata.timeCreated,
+                    updated: metadata.updated,
+                };
             })
         );
         res.json({ img: imgUrl});

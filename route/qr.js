@@ -17,7 +17,7 @@ router.post('/', async (req, res)=>{
         const buffer = Buffer.from(base64Data, 'base64');
 
         const fileName = `qr_${Date.now()}.png`;
-        const qrimgUrl = await uploadImg(buffer, fileName);
+        const qrimgUrl = await uploadImg(buffer, `qr/$(fileName)`);
 
         res.json({qrimgUrl});
     }catch(err){

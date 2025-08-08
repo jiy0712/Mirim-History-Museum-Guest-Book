@@ -33,7 +33,7 @@ router.post('/', upload.single('img'), async (req, res)=>{
         const fileBuffer = fs.readFileSync(filePath);
 
         //firebase 사진 등록 (폴더로 세부화)
-        const imgUrl = await uploadImg(fileBuffer, `img/$(req.file.filename)`);
+        const imgUrl = await uploadImg(fileBuffer, `img/${req.file.filename}`);
 
         fs.unlinkSync(filePath); //로컬임시저장, 나중에 선택적 빼기 가능
 

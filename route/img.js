@@ -5,7 +5,9 @@ const admin = require('firebase-admin');
 //img
 router.get('/', async (req, res)=>{
     try{
-        const [files] = await admin.storage().bucket().getFiles();
+        const [files] = await admin.storage().bucket().getFiles({
+            prefix: 'img/'
+        });
 
         const oneYearLater = new Date();
         oneYearLater.setFullYear(oneYearLater.getFullYear() + 1);

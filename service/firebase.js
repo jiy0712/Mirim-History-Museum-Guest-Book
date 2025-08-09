@@ -8,7 +8,7 @@ const fs = require('fs');
 //firebase admin sdk 초기화
 admin.initializeApp({
     credential: admin.credential.applicationDefault(),
-    storageBucket: 'mirim-history-museum-e3f30.firebasestorage.app'
+    storageBucket: 'mirim-7a49c.firebasestorage.app'
 });
 
 const bucket = admin.storage().bucket();

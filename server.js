@@ -19,7 +19,7 @@ app.use('/storage', storageRouter);
 app.use('/img', imgRouter);
 app.use('/qr', qrRouter);
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
 app.listen(PORT, ()=>{
     console.log(`서버 : ${PORT}`);
 })
